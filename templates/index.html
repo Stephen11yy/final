@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    
+    <!--box icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--custom css-->
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/form.css">
+</head>
+<body>
+
+    <!-- header design-->
+    <header class="header">
+        <a href="#" class="logo">Stephen perez 🧡</a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#terms">General Information</a>
+            <a href="#calculator">Predictor</a>
+            <!-- <a href="#output">Out</a> -->
+            <a href="#about">About</a>
+            <a href="#contact">Developer</a>
+        </nav>
+    </header>
+    <!--home section design-->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello!</h3>
+            <h1>Heart Disease Prediction</h1>
+            <h3>Using <span>Machine Learning</span></h3>
+            <p>The best place for calculate the heart disease.</p>
+            <a class="btn" href="#calculator">Let's Go</a>
+         </div>
+        <div class="home-img">
+            <img src="../static/images/h-img.png" alt="no">
+        </div>
+    </section>
+
+    <!--terms-->
+    <section class="terms" id="terms">
+       
+        <div class="terms-content">
+            <h2 class="heading">General <span>Information</span></h2>
+            <div class="scroll-bar">
+            <h3>Demographic</h3>
+            <p>>> Age: <br>The risk of heart disease increases with age. Men over the age of 45 and women over the age of 55 are at higher risk of developing heart disease.
+                <br>>> Gender: <br>Men are more likely to develop heart disease than premenopausal women. However, after menopause, women's risk of heart disease increases, and it becomes similar to that of men.
+                </p>
+            <h3>Medical</h3>
+            <p>>> trestbps (Hypertension): <br>High blood pressure can increase the workload on the heart and blood vessels, leading to the development of heart disease.
+                <br>>> High Cholesterol: <br>High levels of cholesterol in the blood can contribute to the development of plaque in the arteries, increasing the risk of heart disease.
+                <br>>> fbs (Diabetes): <br>People with diabetes are at higher risk of developing heart disease due to the impact of high blood sugar levels on blood vessels and the heart.
+                <br>>> Family History of Heart Disease: <br>Having a close family member, such as a parent or sibling, with heart disease increases an individual's risk of developing heart disease.
+                <br>>> Chest pain (cp): <br>Chest pain is often the first warning sign of a heart condition. Patients with typical angina or asymptomatic signs are more likely to be diagnosed with heart disease
+                <br>>> restecg (): <br>Abnormal ECG results are one of the earliest non-invasive indicators of heart issues. Conditions like ST-T abnormalities can signal ischemia (restricted blood flow), while LVH (left ventricular hypertrophy) can suggest long-term high blood pressure or valve disease.
+                <br>>> thalach (Maxheartrate): <br>thalach is often one of the most important predictors of heart disease. It has a strong inverse relationship: lower thalach → higher chance of heart issues.
+                <br>>> exang (Exercise-induced angina): <br>Exercise-induced angina usually indicates a blockage in the coronary arteries, limiting blood supply to the heart during physical exertion.
+                <br>>> oldpeak (depression): <br>The higher the value of oldpeak, the more significant the depression, The greater the depression, the higher the likelihood of heart disease.
+                <br>>> slope(): <br>Down-sloping ST segments are often a sign of severe heart disease and coronary artery blockages. Up-sloping and flat slopes are generally less concerning, though flat slopes can still signal early signs of heart disease.
+            </p>
+            </div>
+        </div>
+    </section>
+    <!--calculation-->
+    <section class="calculator" id="calculator">
+        <div class="calculator-content">
+        <h2 class="heading">Predictor <span></span></h2>
+        <div class="scroll-bar-c">
+            <form action="/result" method="post">
+            <div class="box-0">
+            <div class="box-1">
+                <!--demographic-->
+                <div class="box-2">
+                    <h3>Contact Informations</h3>
+                    <div class="input-box">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter Name" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="text" id="age" name="age" placeholder="Enter Your Age in range [1 - 100]" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="sex" class="form-label">Gender</label>
+                        <div class="select_option">
+                          <select id="sex" name="sex" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                          </select>
+                        </div>
+
+            <!--Medical History Informations-->
+            <div class="box-2">
+                <h3>Medical History Informations</h3>
+                <div class="input-box">
+                    <label for="chol" class="form-label">Cholesterol</label>
+                    <input type="chol" id="chol" placeholder="A number in range [0 - 700]" name="chol" required>
+                </div>
+                <div class="input-box">
+                    <label for="trestbps" class="form-label">Bloodpressure</label>
+                    <input type="text" id="trestbps" placeholder="A number in range [70 mm Hg - 250 mm Hg]" name="trestbps" required>
+                </div>
+                <div class="input-box">
+                    <label for="fbs" class="form-label">Diabetes</label>
+                    <div class="select_option">
+                        <select id="fbs" name="fbs" required>
+                          <option selected disabled value="">Choose...</option>
+                          <option value="0">No</option>
+                          <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="restecg" class="form-label">Resting Electrocardiographic Results</label>
+                    <div class="select_option">
+                      <select id="restecg" name="restecg" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="0">Normal ECG</option>
+                        <option value="1">ST-T wave abnormality</option>
+                        <option value="2">Left ventricular hypertrophy</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="exang" class="form-label">exercise induced angina</label>
+                    <div class="select_option">
+                      <select id="exang" name="exang" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="oldpeak" class="form-label">oldpeak</label>
+                    <input type="text" id="oldpeak" placeholder="A number in range [0-3]" name="oldpeak" required>
+                </div>
+                <div class="input-box">
+                    <label for="thalach" class="form-label">Heart Rate</label>
+                    <input type="text" id="maxhr" placeholder="A number in range [100 - 240]" name="thalach" required>
+                </div>
+                <div class="input-box">
+                    <label for="cp" class="form-label">Chest Pain</label>
+                    <div class="select_option">
+                      <select id="cp" name="cp" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="0">Typical angina</option>
+                        <option value="1">Atypical angina</option>
+                        <option value="2">Non-anginal pain</option>
+                        <option value="3">Asymptomatic</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="slope" class="form-label">slope</label>
+                    <div class="select_option">
+                      <select id="slope" name="slope" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="0">Up-sloping</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Down-sloping</option>
+                      </select>
+                    </div>
+                </div>
+                <!---------------->
+               
+            </div>
+        </div>
+        <button class="btn" type="submit">Predict the Value</button>                
+        </form>
+      </div>
+    </div>
+    </section>
+    
+</div>
+    <!--about-->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="../static/images/a-img.jpg" alt="no">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Us</span></h2>
+            <h3>Heart Disease Prediction</h3>
+            <p>Welcome to our heart disease prediction website! We are a team of CS students dedicated to using the latest technologies to improve the early detection and prevention of heart disease. Our mission is to help people understand their risk of heart disease and take proactive steps to protect their health. We believe that by providing accurate and reliable predictions, we can empower individuals to make informed decisions about their health and well-being. Our team has extensive experience in the fields of cardiology and data analysis, and we use state-of-the-art machine learning algorithms to analyze health data and predict the likelihood of heart disease. Our models are constantly evolving, based on the latest research and clinical data, to ensure the highest level of accuracy. We understand that heart disease can be a complex and intimidating topic, which is why we are committed to providing our users with clear and accessible information. Our website includes resources and educational materials to help users understand their risk factors and take steps to reduce their risk of heart disease. At our core, we are a team of B Tech CS students who are passionate about using technology to improve patient outcomes. We believe that by providing accurate and reliable predictions, we can help individuals take control of their health and live longer, healthier lives. Thank you for visiting our website, and we look forward to helping you better understand your risk of heart disease.</p>
+        </div>
+    </section>
+    <!--contact-->
+    <section class="contact" id="contact">
+        
+        <h2 class="heading">Dev<span>eloper</span></h2>
+        <div class="contact-content">
+            <div class="contact-box">
+                <h4>B.Tech (CS) Student</h4>
+                <p> Hi! My name is Stephen. I am a B.Tech (CS) final-year student at SEKU University of Technology college. During my three and half years of study, I gained knowledge in programming languages such as Python, and HTML & CSS. I also know basics data structures and algorithms and have implemented them in this site. I was full responsible for developing this site. This site user interface designed using HTML & CSS, implementing the machine-learning functionalities using python program and developed this site using python flask frame work.</p>
+                <div class="layer">
+                    <img style="width: 5rem;" src="../static/images/team-lead.png" alt="">
+                    <h3>Stephen O</h3>
+                    <p>+254740069576<br>xantiagoperz78@gmail.com</p>
+                </div>
+           </div>
+           
+
+           <!--
+            <div class="contact-box">
+                <img style="width: 5rem;" src="../static/images/users1.png" alt="">
+                <h3>Team Member</h3>
+                <p>Stephen<br>+254740069576 <br>stephenomondi@students.seku.ac</p>
+            </div>
+
+            <div class="contact-box">
+                <img style="width: 5rem;" src="../static/images/users2.png" alt="">
+                <h3>Team Member</h3>
+                <p>Stephen omondi B<br>+254740069576 <br> xantiagoperz78@gmail.com</p>
+            </div>
+            -->
+        </div>
+    
+       
+    </section>
+    
+    <!--footer design-->
+    <div class="footer">
+        <div class="footer-text">
+            <p>Copyright © 2025 AV. All rights reserved</p>    
+        </div>
+        <div class="footer-iconTop">
+            <p>Version 5.3.2</p>
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </div>
+    
+
+    <!--custom js-->
+    <script src="../js/script.js"></script>
+</body>
+</html>
